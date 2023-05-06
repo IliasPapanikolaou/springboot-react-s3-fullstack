@@ -22,9 +22,9 @@ public class BackendApiApplication {
 		SpringApplication.run(BackendApiApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner runner(CustomerRepository customerRepository, PasswordEncoder passwordEncoder,
-							 S3Service s3Service, S3Buckets s3Buckets) {
+	// @Bean
+	CommandLineRunner runner(CustomerRepository customerRepository, PasswordEncoder passwordEncoder
+			/*,S3Service s3Service, S3Buckets s3Buckets*/) {
 		return args -> {
 			createRandomCustomer(customerRepository, passwordEncoder);
 			//testBucketUploadAndDownload(s3Service, s3Buckets);
@@ -32,15 +32,8 @@ public class BackendApiApplication {
 	}
 
 	private static void testBucketUploadAndDownload(S3Service s3Service, S3Buckets s3Buckets) {
-		s3Service.putObject(
-				s3Buckets.getCustomer(),
-				"foo/bar",
-				"Hello World".getBytes()
-		);
-		byte[] obj = s3Service.getObject(
-				s3Buckets.getCustomer(),
-				"foo/bar"
-		);
+		s3Service.putObject(s3Buckets.getCustomer(), "foo/bar", "Hello World".getBytes());
+		byte[] obj = s3Service.getObject(s3Buckets.getCustomer(), "foo/bar");
 		System.out.println("Hooray: " + new String(obj));
 	}
 
