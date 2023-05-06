@@ -71,7 +71,7 @@ public class Customer implements UserDetails {
         this.profileImageId = profileImageId;
     }
 
-    public Customer(String name, String email, String encode, Integer age, Gender gender) {
+    public Customer(String name, String email, String password, Integer age, Gender gender) {
         this.name = name;
         this.email = email;
         this.password = password;
