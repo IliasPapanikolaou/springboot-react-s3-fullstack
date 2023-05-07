@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/frontend-react.iml" filepath="$PROJECT_DIR$/frontend-react.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-react-s3-fullstack.iml" filepath="$PROJECT_DIR$/springboot-react-s3-fullstack.iml" />
     </modules>
   </component>

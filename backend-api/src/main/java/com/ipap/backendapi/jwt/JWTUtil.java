@@ -17,7 +17,7 @@ import static java.time.temporal.ChronoUnit.DAYS;
 @Service
 public class JWTUtil {
 
-    private static final String SECRET_KEY = "8e5c0fbba4b6f508d67bea153844a2b1acd9c34a14f5799e7e1464f038c4e898";
+    private static final String SECRET_KEY = "LnPgpFA9Liayb7/8MpNuwcw7YO22hV1y4aobFPovk54=";
 
     public String issueToken(String subject) {
         return issueToken(subject, Map.of());
@@ -37,9 +37,9 @@ public class JWTUtil {
                 .setSubject(subject)
                 .setIssuer("https://ipapdev.com")
                 .setIssuedAt(Date.from(Instant.now()))
-                //.setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 7)) // 7 days
-                .setExpiration(Date.from(Instant.now().plus(7, DAYS))) // 7 days
-                .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 7)) // 7 days
+                //.setExpiration(Date.from(Instant.now().plus(7, DAYS))) // 7 days
+                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
 
